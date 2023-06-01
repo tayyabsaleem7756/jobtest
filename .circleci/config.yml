@@ -18,8 +18,7 @@ jobs:
           name: "Say hello"
           command: |
             cd frontend
-            npm i
-            npx run cy:adminSmokeTestRail
+            npm run cy:adminSmokeTestRail
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
