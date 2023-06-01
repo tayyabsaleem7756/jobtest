@@ -60,7 +60,7 @@ jobs:
 
 
 workflows:
-  daily:
+  continuous-deploy:
     triggers:
       - schedule:
           cron: "* 1 * * *"
