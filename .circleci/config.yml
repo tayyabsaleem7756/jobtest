@@ -41,7 +41,7 @@ workflows:
      triggers:
       - schedule:
           cron: "* * * * *"
-          filters:
+           filters:
             branches:
               only:
                 - main
