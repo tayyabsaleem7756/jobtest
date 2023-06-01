@@ -33,9 +33,10 @@ jobs:
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-      jobs:
-      - testsuite_smoke_testrail:
-          context: 
+  say-hello-workflow:
+    jobs:
+      - testsuite_smoke_testrail
+        context: 
             - sidecar-shared
           filters:
             tags:
@@ -44,5 +45,4 @@ workflows:
                - /^build.*/
             branches:
               ignore: /.*/
-    
 
