@@ -60,12 +60,11 @@ jobs:
 
 
 workflows:
-  say-hello-workflow:
-    jobs: 
+  say-hello-workflow: 
   daily:
     triggers:
       - schedule:
-          cron: "* * * * *"
+          cron: "* 1 * * *"
           filters:
             branches:
               only:
