@@ -36,12 +36,5 @@ workflows:
   say-hello-workflow:
     jobs:
       - testsuite_smoke_testrail
-    nightly:
-    triggers:
-      - schedule:
-          cron: "22 16 * * *"
-          filters:
-            branches:
-              only:
-                - main
+    
 
