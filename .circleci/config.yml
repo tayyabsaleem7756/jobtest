@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: 
+          command: |
           cd frontend
           npm i
           npm run cy:adminSmokeTestRail || true
