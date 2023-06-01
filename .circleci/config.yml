@@ -5,8 +5,8 @@ orbs:
   # the strict explicit version "cypress-io/cypress@3.x.y"
   # to lock the version and prevent unexpected CI changes
   cypress: cypress-io/cypress@3
-workflows:
-  build:
-    jobs:
-      - cypress/run 
-          start-command: 'npm run start'
+    workflows:
+      build:
+         jobs:
+         - cypress/run 
+                start-command: 'npx cypress run'
