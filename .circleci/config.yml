@@ -16,9 +16,9 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command:
-            cd frontend
-            npx run cy:adminSmokeTestRail
+          command: cd frontend
+  
+           command: npx run cy:adminSmokeTestRail
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
