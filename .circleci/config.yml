@@ -60,7 +60,8 @@ jobs:
 
 
 workflows:
-  daily:
+
+  say-hello-workflow:
     triggers:
       - schedule:
           cron: "* 1 * * *"
