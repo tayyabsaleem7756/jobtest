@@ -384,6 +384,18 @@ workflows:
 
   continuous-deploy:
     jobs:
+    - testsuite_smoke_testrail:
+          context: 
+            - sidecar-shared
+          triggers:
+            - schedule:
+               cron: "15 14 * * *"
+            branches:
+              ignore: /.*/
+
+
+
+
       - testsuite_smoke_testrail:
           context: 
             - sidecar-shared
@@ -394,6 +406,7 @@ workflows:
                - /^build.*/
             branches:
               ignore: /.*/
+    
       - testsuite_investorSmokeTests:
           context:
             - sidecar-shared
