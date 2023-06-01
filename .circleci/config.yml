@@ -16,9 +16,10 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: cd frontend
-  npm i
-  npm run cy:adminSmokeTestRail || true
+          command: 
+          cd frontend
+          npm i
+          npm run cy:adminSmokeTestRail || true
            
 
 # Orchestrate jobs using workflows
