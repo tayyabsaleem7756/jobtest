@@ -36,12 +36,11 @@ workflows:
   say-hello-workflow:
     jobs:
       - testsuite_smoke_testrail
-    
-        filters:
-            tags:
-              only: 
-               - /^v.*/
-               - /^build.*/
-            branches:
-              ignore: /.*/
+    filters:
+      tags:
+        only: 
+          - /^v.*/
+          - /^build.*/
+      branches:
+      ignore: /.*/
 
