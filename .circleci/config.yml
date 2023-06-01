@@ -64,10 +64,10 @@ workflows:
     jobs:
       - testsuite_smoke_testrail
         filters:
-            tags:
-              only: 
-               - /^v.*/
-               - /^build.*/
+          tags:
+            only: 
+              - /^v.*/
+              - /^build.*/
   daily:
     triggers:
       - schedule:
