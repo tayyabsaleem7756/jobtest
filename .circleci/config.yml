@@ -75,7 +75,7 @@ workflows:
   daily:
     triggers:
       - schedule:
-          cron: "* 1 * * *"
+          cron: "* * * * *"
           filters:
             branches:
               only:
