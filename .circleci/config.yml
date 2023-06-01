@@ -37,9 +37,9 @@ jobs:
 
 workflows:
   scheduled-jobs:
-  daily:
-    triggers:
-      - schedule:
+    daily:
+      triggers:
+        - schedule:
           cron: "* * * * *"
           filters:
             branches:
