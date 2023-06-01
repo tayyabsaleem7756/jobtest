@@ -36,7 +36,7 @@ jobs:
 
 
 workflows:
-  say-hello-workflow:
+  scheduled-jobs:
   daily:
     triggers:
       - schedule:
