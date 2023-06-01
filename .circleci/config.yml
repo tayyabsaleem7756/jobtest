@@ -38,7 +38,7 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - testsuite_smoke_testrail:
+      - testsuite_smoke_testrail
           context: 
             - sidecar-shared
           filters:
