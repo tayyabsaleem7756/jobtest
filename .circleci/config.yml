@@ -62,7 +62,7 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - testsuite_smoke_testrail 
+      - testsuite_smoke_testrail
   daily:
     triggers:
       - schedule:
@@ -70,8 +70,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
-                
+                - main            
     jobs:
       - testsuite_smoke_testrail
 
