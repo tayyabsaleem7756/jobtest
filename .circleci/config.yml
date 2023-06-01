@@ -195,7 +195,7 @@ jobs:
       - store_artifacts:
           path: /root/circleci-marketplace-api/frontend/cypress/screenshots
   
- 
+  test_marketplace_api:
     working_directory: ~/circleci-marketplace-api
     docker:
       - image: cimg/python:3.9
