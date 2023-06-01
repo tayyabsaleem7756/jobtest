@@ -48,6 +48,8 @@ workflows:
               only:
                 - main
                 
-    
+    jobs:
+      - testsuite_smoke_testrail
+
     
 
