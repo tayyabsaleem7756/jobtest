@@ -60,9 +60,6 @@ jobs:
 
 
 workflows:
-  continuous-deploy:
-    jobs:
-      - testsuite_smoke_testrail
   daily:
     triggers:
       - schedule:
@@ -70,7 +67,7 @@ workflows:
           filters:
             branches:
               only:
-                - main            
+                - main
     jobs:
       - testsuite_smoke_testrail
 
