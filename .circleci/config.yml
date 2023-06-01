@@ -60,7 +60,9 @@ jobs:
 
 
 workflows:
-  say-hello-workflow: 
+  say-hello-workflow:
+    jobs:
+      - testsuite_smoke_testrail 
   daily:
     triggers:
       - schedule:
@@ -72,7 +74,7 @@ workflows:
                 
     jobs:
       - testsuite_smoke_testrail
-
+      - 
 
     
 
