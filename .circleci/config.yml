@@ -73,7 +73,3 @@ workflows:
                 - main            
     jobs:
       - testsuite_smoke_testrail
-
-    
-
-
