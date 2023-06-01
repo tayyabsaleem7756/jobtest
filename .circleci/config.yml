@@ -5,20 +5,29 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/configuration-reference/#executor-job
+ testsuite_smoke_testrail:
+    working_directory: ~/circleci-marketplace-api
+    resource_class: large
     docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/configuration-reference/#steps
+      - image: cypress/included:10.6.0
+        user: root
+        environment:
+          TERM: xterm
+      - image: cimg/postgres:13.3
+        environment:
+          POSTGRES_USER: citest
+          POSTGRES_DB: citest
+          POSTGRES_PASSWORD: citest
+      - image: localstack/localstack
+      - image: cimg/redis:6.2
     steps:
       - checkout
       - run:
-          name: "Say hello"
+          name: Running Smoke tests
           command: |
             cd frontend
-            cypress run
+            npm i
+            CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:adminSmokeTestRail || true
            
 
 # Orchestrate jobs using workflows
@@ -26,4 +35,4 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
+      - testsuite_smoke_testrail
