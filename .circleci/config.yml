@@ -60,14 +60,20 @@ jobs:
 
 
 workflows:
-  say-hello-workflow: 
+  say-hello-workflow:
+    jobs:
+      - testsuite_smoke_testrail
+      - testsuite_smoke_testrail2
+          
+  daily:
     triggers:
       - schedule:
           cron: "* * * * *"
           filters:
             branches:
               only:
-                - main            
+                - main
+                
     jobs:
       - testsuite_smoke_testrail
       - testsuite_smoke_testrail2:
