@@ -36,8 +36,7 @@ jobs:
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
-          command: cd frontend
-          npx cypress run --spec cypress/e2e/smokeTests/investor/jobtest.cy.js --config-file=jobconf.config.js
+          command: pytest
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
