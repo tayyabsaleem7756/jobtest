@@ -1,0 +1,128 @@
+######################################################################################################################
+# APPLICATION CI/CD CONFIGURATION
+#
+# This configures CircleCI to implement a CI/CD pipeline for application code. Refer to the Gruntwork Production
+# Deployment Guide, "How to configure a production-grade CI/CD workflow for infrastructure code"
+# (https://gruntwork.io/guides/automations/how-to-configure-a-production-grade-ci-cd-setup-for-apps-and-infrastructure-code/)
+# for details on how the pipeline is setup.
+#
+# The following pipeline is implemented in this configuration:
+#
+# - For any commit on any branch, build a new docker image using the commit SHA.
+# - For commits to main, deploy the built image to the dev environment.
+# - For release tags, deploy the built image to the stage environment.
+######################################################################################################################
+version: 2.1
+
+# We use the slack orb to implement slack notifications.
+# Note that in order for this to work, we need to specify the oauth token for the bot using SLACK_ACCESS_TOKEN env var on
+# the build.
+# Refer to the official setup documentation for more info: https://github.com/CircleCI-Public/slack-orb/wiki/Setup
+orbs:
+  slack: circleci/slack@4.1.1
+
+# Global constants for the jobs. This includes:
+# - Using machine executor
+# - Tools versions
+marketplace_defaults: &marketplace_api_defaults
+  machine:
+    image: "ubuntu-2004:202101-01"
+  environment:
+    REGION: us-west-2
+    GRUNTWORK_INSTALLER_VERSION: v0.0.36
+    MODULE_CI_VERSION: v0.38.9
+    MODULE_SECURITY_VERSION: v0.55.0
+    DEV_DEPLOY_PATH: "dev/us-west-2/dev/services/marketplace-api"
+    STAGE_DEPLOY_PATH: "stage/us-west-2/stage/services/marketplace-api"
+    IMAGE_TAG_VARNAME: "tag"
+  resource_class: large
+
+investor_defaults: &investor_dashboard_defaults
+  machine:
+    image: "ubuntu-2004:202101-01"
+  environment:
+    REGION: us-west-2
+    GRUNTWORK_INSTALLER_VERSION: v0.0.36
+    MODULE_CI_VERSION: v0.38.9
+    MODULE_SECURITY_VERSION: v0.55.0
+    DEV_DEPLOY_PATH: "dev/us-west-2/dev/services/investor-dashboard"
+    STAGE_DEPLOY_PATH: "stage/us-west-2/stage/services/investor-dashboard"
+    IMAGE_TAG_VARNAME: "tag"
+  resource_class: large
+
+sidecar_admin_defaults: &sidecar_admin_defaults
+  machine:
+    image: "ubuntu-2004:202101-01"
+  environment:
+    REGION: us-west-2
+    GRUNTWORK_INSTALLER_VERSION: v0.0.36
+    MODULE_CI_VERSION: v0.38.9
+    MODULE_SECURITY_VERSION: v0.55.0
+    DEV_DEPLOY_PATH: "dev/us-west-2/dev/services/sidecar-admin"
+    STAGE_DEPLOY_PATH: "stage/us-west-2/stage/services/sidecar-admin"
+    IMAGE_TAG_VARNAME: "tag"
+  resource_class: large
+
+public_marketplace_frontend_defaults: &public_marketplace_frontend_defaults
+  machine:
+    image: "ubuntu-2004:202101-01"
+  environment:
+    REGION: us-west-2
+    GRUNTWORK_INSTALLER_VERSION: v0.0.36
+    MODULE_CI_VERSION: v0.38.9
+    MODULE_SECURITY_VERSION: v0.55.0
+    DEV_DEPLOY_PATH: "dev/us-west-2/dev/services/public-marketplace-frontend"
+    STAGE_DEPLOY_PATH: "stage/us-west-2/stage/services/public-marketplace-frontend"
+    IMAGE_TAG_VARNAME: "tag"
+
+jobs:
+  testsuite_smoke_testrail:
+    working_directory: ~/circleci-marketplace-api
+    resource_class: large
+    docker:
+      - image: cypress/included:10.6.0
+        user: root
+        environment:
+          TERM: xterm
+      - image: cimg/postgres:13.3
+        environment:
+          POSTGRES_USER: citest
+          POSTGRES_DB: citest
+          POSTGRES_PASSWORD: citest
+      - image: localstack/localstack
+      - image: cimg/redis:6.2
+    steps:
+      - checkout
+      - run:
+          name: Running Smoke tests
+          command: |
+            cd frontend
+            npm i
+            CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:adminSmokeTestRail || true
+      - store_test_results:
+          path: multiple-results
+      - store_artifacts:
+          path: /root/circleci-marketplace-api/frontend/cypress/videos
+      - store_artifacts:
+          path: /root/circleci-marketplace-api/frontend/cypress/screenshots
+
+
+
+
+workflows:
+  # Workflow: always build images, and then deploy image to dev on all commits to main, and deploy image to stage on
+  # all tags that start with `v`.
+
+  continuous-deploy:
+    jobs:
+      - testsuite_smoke_testrail:
+          context: 
+            - sidecar-shared
+          filters:
+            tags:
+              only: 
+               - /^v.*/
+               - /^build.*/
+            branches:
+              ignore: /.*/
+   
