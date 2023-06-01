@@ -17,9 +17,9 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-          cd frontend
-          npm i
-          npm run cy:adminSmokeTestRail || true
+            cd frontend
+            npm i
+            CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD  npm run cy:adminSmokeTestRail || true
            
 
 # Orchestrate jobs using workflows
