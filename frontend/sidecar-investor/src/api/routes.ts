@@ -1,0 +1,83 @@
+const API_BASE = process.env.REACT_APP_API_URL
+
+export const ANALYTICS_ENTITY_ACTION_URL = `${API_BASE}/api/analytics/entity/action`
+export const AGREEMENTS_URL = `${API_BASE}/api/agreements`
+export const CAPITAL_CALL_URL = `${API_BASE}/api/capital_calls/`
+export const INVESTOR_DETAIL_URL = `${API_BASE}/api/investors/detail/`
+export const ORDERS_URL = `${API_BASE}/api/investors/orders/`
+export const FUND_SALES_URL = `${API_BASE}/api/investors/sales/`
+export const INVESTOR_PROFILES_URL = `${API_BASE}/api/investors/profiles/`
+export const ADMIN_INVESTOR_USER_URL = `${API_BASE}/api/admin/investors/users/`
+export const USERS_URL = `${API_BASE}/api/users/`
+export const USER_INFO_URL = `${API_BASE}/api/users/info`
+export const FIRST_LOGIN_URL = `${API_BASE}/api/users/first_login`
+export const UNREAD_NOTIFICATION_COUNT_URL = `${API_BASE}/api/users/unread_notification_count`
+export const NOTIFICATIONS_URL = `${API_BASE}/api/notifications/`
+export const NOTIFICATIONS_FILTERS_URL = `${API_BASE}/api/notifications/filters`
+export const FUND_INVESTOR_URL = `${API_BASE}/api/investors/funds/`
+export const DOCUMENTS_URL = `${API_BASE}/api/documents/`
+export const KYC_RECORDS_URL = `${API_BASE}/api/kyc_records/`
+export const FUND_INTEREST_URL = `${API_BASE}/api/funds/interest`
+export const COMMENTS_URL = `${API_BASE}/api/comments/`
+export const TAX_RECORDS_URL = `${API_BASE}/api/tax_records`
+export const APP_RECORDS_URL = `${API_BASE}/api/applications`
+export const APPLICATIONS_BASE_URL = `${API_BASE}/api/applications`
+export const COMPANY_REGIONS_URL = `${API_BASE}/api/geographics/region_countries`
+export const getNonInvestedOpportunitiesUrl = (companySlug: string) => `${API_BASE}/api/investors/${companySlug}/non-invested-opportunities/`
+export const getCompanyProfileUrl = (companySlug: string) => `${API_BASE}/api/companies/${companySlug}/profile`
+export const getFundsDemandURL = (externalId: string) => `${API_BASE}/api/funds/external_id/${externalId}`
+export const getFundProfileURL = (externalId: string) => `${API_BASE}/api/funds/external_id/${externalId}/profile`
+export const getFundIndicateInterestURL = (externalId: string) => `${API_BASE}/api/funds/external_id/${externalId}/indicate-interest`
+export const getFundsInvestmentsURL = (externalId: string) => `${FUND_INVESTOR_URL}${externalId}/detail`
+export const getWorkflowsURLByFund = (externalId: string) => `${API_BASE}/api/workflows/funds/${externalId}/`
+export const getKYCDocumentsURL = (kycRecordId: number) => `${KYC_RECORDS_URL}${kycRecordId}/documents`
+export const getKYCDocumentDeletionURL = (kycRecordId: number, documentId: string) => `${KYC_RECORDS_URL}${kycRecordId}/documents/${documentId}`
+export const getKYCRecordFetchURL = (uuid: string) => `${KYC_RECORDS_URL}${uuid}`
+export const getTaxDocumentDeletionURL = (recordId: number, documentId: string) => `${TAX_RECORDS_URL}/${recordId}/documents/${documentId}`;
+export const getKYCRecordCreateURL = (workflowSlug: string) => `${KYC_RECORDS_URL}workflows/${workflowSlug}/kyc_records`
+export const getKYCRecordUpdateURL = (workflowSlug: string, kycRecordId: number) => `${KYC_RECORDS_URL}workflows/${workflowSlug}/kyc_records/${kycRecordId}/`
+export const reviewKYCRecordUpdateURL = (recordId: number, externalId: string) => `${KYC_RECORDS_URL}${recordId}/review/fund/${externalId}`
+export const getKYCParticipantRecordCreateURL = (workflowSlug: string, kycRecordId: number) => `${KYC_RECORDS_URL}workflows/${workflowSlug}/kyc_records/${kycRecordId}/participants`
+export const getKYCParticipantRecordDocumentsURL = (workflowSlug: string, kycRecordId: number, participantId: number) => `${KYC_RECORDS_URL}workflows/${workflowSlug}/kyc_records/${kycRecordId}/participants/${participantId}/documents`
+export const getKYCParticipantRecordUpdateURL = (workflowSlug: string, kycRecordId: number, participantId: number) => `${KYC_RECORDS_URL}workflows/${workflowSlug}/kyc_records/${kycRecordId}/participants/${participantId}`
+export const getKYCParticipantRecordFetchURL = (workflowSlug: string, kycRecordId: number, participantId: number) => `${KYC_RECORDS_URL}workflows/${workflowSlug}/kyc_records/${kycRecordId}/participants/${participantId}`
+export const updateOrderDetailURL = (orderId: number) => `${ORDERS_URL}${orderId}`
+export const fundInvestorDetailUrl = (fundInvestorId: string) => `${FUND_INVESTOR_URL}${fundInvestorId}`
+export const capitalCallDetailUrl = (capitalCallUUID: string) => `${CAPITAL_CALL_URL}${capitalCallUUID}`
+export const documentDownloadUrl = (documentId: string) => `${DOCUMENTS_URL}${documentId}`
+export const updateNotificationUrl = (notificationId: number) => `${NOTIFICATIONS_URL}${notificationId}`
+export const getKYCCommentsURL = (kycRecordId: number) => `${COMMENTS_URL}kyc_record/${kycRecordId}/`;
+export const getKYCCommentsUpdateURL = (commentId: number) => `${COMMENTS_URL}${commentId}`;
+export const deleteDocumentUrl = (documentId: number) => `${DOCUMENTS_URL}${documentId}`
+export const getTaxForms = () => `${TAX_RECORDS_URL}/tax_forms/`;
+export const getFundTaxFormsUrl = (fundExternalId: string) => `${TAX_RECORDS_URL}/${fundExternalId}/tax_forms/`;
+export const getTaxRecords = () => `${TAX_RECORDS_URL}/`;
+export const getTaxRecordsCreateUrl = (externalId: string) => `${TAX_RECORDS_URL}/${externalId}`;
+export const getFundAppRecords = (externalId: string) => `${APP_RECORDS_URL}/funds/${externalId}/applications`;
+export const getAppRecords = (uuid: string) => `${APP_RECORDS_URL}/applications/${uuid}`;
+export const getCreateEnvelopeUrl = (tax_record_id: string) => `${TAX_RECORDS_URL}/${tax_record_id}/tax_documents/create_envelope`;
+export const getSigningUrlUrl = (envelopeId: string, returnUrl: string) => `${TAX_RECORDS_URL}/tax_forms/${envelopeId}/form_signing_url?return_url=${returnUrl}`;
+export const getProgramDocsSigningUrl = (fundSlug: string, programDocId: number, returnUrl: string) => `${APPLICATIONS_BASE_URL}/funds/${fundSlug}/company-documents/signing_url/${programDocId}?return_url=${returnUrl}`;
+export const getSaveProgramDocsSigningUrl = (fundSlug: string, envelopeId: string) => `${APPLICATIONS_BASE_URL}/funds/${fundSlug}/company-documents/store_response/${envelopeId}`;
+export const getTaxDocumentsListUrl = (tax_record_id: string) => `${TAX_RECORDS_URL}/${tax_record_id}/tax_documents/`;
+export const getSaveSignedFormUrl = (fundExternalId: string, envelopeId: string) => `${TAX_RECORDS_URL}/${fundExternalId}/tax_documents/${envelopeId}`;
+export const getCountriesUrl = (externalId: string) => `${COMPANY_REGIONS_URL}/${externalId}`;
+export const getApplicationDocumentRequestListUrl = (applicationId: number) => `${APPLICATIONS_BASE_URL}/application-document-request/${applicationId}`
+export const getApplicationDocumentRequestResponseUrl = () => `${APPLICATIONS_BASE_URL}/application-document-request-response`
+export const getApplicationDocumentRequestResponseListUrl = (applicationId: number) => `${APPLICATIONS_BASE_URL}/application-document-request-response/${applicationId}`
+export const getApplicationDocumentRequestResponseDeletetUrl = (responseId: number) => `${APPLICATIONS_BASE_URL}/application-document-response-delete/${responseId}`
+export const getUserAgreementSigningUrl = (agreementId: number, returnUrl: string) => `${AGREEMENTS_URL}/signing_url/${agreementId}?return_url=${returnUrl}`;
+export const storeUserResponseUrl = (envelopeId: string) => `${AGREEMENTS_URL}/store_response/${envelopeId}`;
+export const getWitnessRequestUrl = (uuid: string) => `${AGREEMENTS_URL}/witness_requester/${uuid}`;
+export const getWitnessAgreementSigningUrl = (uuid: string, envelopeId: string, returnUrl: string) => `${AGREEMENTS_URL}/witness_signing_url/${uuid}/document/${envelopeId}?return_url=${returnUrl}`;
+export const storeWitnessResponseUrl = (uuid: string, envelopeId: string) => `${AGREEMENTS_URL}/witness_store_response/${uuid}/document/${envelopeId}`;
+export const getDismissApplicationUpdateNotificationtUrl = (application_id: string) => `${APPLICATIONS_BASE_URL}/${application_id}`
+export const getUpdateTaxRecordUrl = (recordUUI: string) => `${API_BASE}/api/tax_records/tax-record/${recordUUI}/update`
+export const getFetchTaxDetailsUrl = (recordUUI: string) => `${API_BASE}/api/tax_records/tax-record/${recordUUI}`
+export const getUploadPOAUrl = (externalId: string) => `${API_BASE}/api/companies/users/by-fund/${externalId}/attorney-document`
+export const getUpdateProgramDocsUrl = (externalId: string, documentId: string) => `${API_BASE}/api/applications/funds/${externalId}/company-documents/${documentId}`
+export const getCreateTaxWorkflowUrl = (fundExternalId: string) => `${TAX_RECORDS_URL}/${fundExternalId}/tax-record/workflow`;
+export const getCreateTaxReviewTaskUrl = (fundExternalId: string, recordUUID: string) => `${TAX_RECORDS_URL}/${fundExternalId}/tax-record/${recordUUID}/task`;
+export const getCiteriaBlockUrl = (blockId: number, direction: string, externalId: string) => `${API_BASE}/api/eligibility_criteria/${externalId}/criteria_block/${blockId}/${direction}/block`;
+export const getReplyListCreateUrl = (commentId: number) => `${API_BASE}/api/comments/${commentId}/replies`;
+

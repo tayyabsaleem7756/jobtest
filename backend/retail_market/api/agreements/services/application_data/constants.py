@@ -1,0 +1,16 @@
+TEXT_FIELD_TYPE = 'text'
+BOOLEAN_FIELD_TYPE = 'boolean'
+CHECKBOX_TYPE = 'checkbox'
+SIGNATURE_TYPE = 'signature'
+DATE_TYPE = 'date'
+
+ELIGIBILITY_ID = 'ec'
+AML_KYC_ID = 'aml-kyc'
+TAX_ID = 'tax'
+FUND_ID = 'fund'
+PAYMENT_DETAILS_ID = 'pd'
+INVESTMENT_AMOUNT_ID = 'ia'
+APPLICATION_ID = 'application'
+APPLICANT_ID = 'applicant'
+
+OTHER_LICENSE_VALUE = 'Other Professional Certification(s) or Designation(s) or Credential(s)'

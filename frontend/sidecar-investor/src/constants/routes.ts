@@ -1,0 +1,1 @@
+export const INVESTOR_URL_PREFIX = 'investor';
