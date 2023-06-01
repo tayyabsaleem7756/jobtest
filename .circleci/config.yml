@@ -60,7 +60,7 @@ jobs:
 
 
 workflows:
-  say-hello-workflow:
+  continuous-deploy:
     jobs:
       - testsuite_smoke_testrail
   daily:
