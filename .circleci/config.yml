@@ -36,10 +36,12 @@ jobs:
 
 
 workflows:
-  scheduled-jobs:
-    daily:
-      triggers:
-        - schedule:
+  say-hello-workflow:
+    jobs:
+      - testsuite_smoke_testrail
+  daily:
+    triggers:
+      - schedule:
           cron: "* * * * *"
           filters:
             branches:
