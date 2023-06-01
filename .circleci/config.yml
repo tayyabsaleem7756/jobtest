@@ -60,26 +60,15 @@ jobs:
 
 
 workflows:
-  say-hello-workflow:
-    jobs:
-      - testsuite_smoke_testrail:
-          context: 
-            - sidecar-shared
-          filters:
-            tags:
-              only: 
-               - /^v.*/
-               - /^build.*/
-            branches:
-              ignore: /.*/
-  daily:
-    triggers:
-      - schedule:
-          cron: "* * * * *"
-          filters:
-            branches:
-              only:
-                - main
+  say-hello-workflow: 
+    daily:
+      triggers:
+        - schedule:
+            cron: "* * * * *"
+            filters:
+              branches:
+                only:
+                  - main
                 
     jobs:
       - testsuite_smoke_testrail
