@@ -36,12 +36,11 @@ jobs:
 
 
 workflows:
-  continuous-deploy:
-    daily:
-     triggers:
+  daily:
+    triggers:
       - schedule:
           cron: "* * * * *"
-           filters:
+          filters:
             branches:
               only:
                 - main
