@@ -19,7 +19,7 @@ jobs:
           command: |
             cd frontend
             npm i
-            CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:adminSmokeTestRail || true
+            npm run cy:adminSmokeTestRail
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
