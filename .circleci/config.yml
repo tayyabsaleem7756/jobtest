@@ -36,8 +36,9 @@ jobs:
 
 
 workflows:
-  daily:
-    triggers:
+  continuous-deploy:
+    daily:
+     triggers:
       - schedule:
           cron: "* * * * *"
           filters:
