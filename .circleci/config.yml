@@ -36,8 +36,8 @@ jobs:
 
 
 workflows:
-  continuous-deploy:
-   daily:
+  say-hello-workflow:
+  daily:
     triggers:
       - schedule:
           cron: "* * * * *"
