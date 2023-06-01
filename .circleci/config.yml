@@ -47,9 +47,7 @@ workflows:
             branches:
               only:
                 - main
-                - beta
-    jobs:
-      - coverage
-
+                
+    
     
 
