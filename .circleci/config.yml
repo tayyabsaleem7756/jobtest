@@ -72,16 +72,4 @@ workflows:
                 
     jobs:
       - testsuite_smoke_testrail  
-  daily:
-    triggers:
-      - schedule:
-          cron: "* * * * *"
-          filters:
-            branches:
-              only:
-                - main
-                
-    jobs:
-      - testsuite_smoke_testrail_2
 
-    
