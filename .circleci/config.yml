@@ -71,8 +71,7 @@ workflows:
                - /^v.*/
                - /^build.*/
             branches:
-              only:
-                - main 
+              ignore: /.*/
   daily:
     triggers:
       - schedule:
