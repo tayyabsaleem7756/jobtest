@@ -62,7 +62,16 @@ jobs:
 workflows:
   continuous-deploy:
     jobs:
-      - testsuite_smoke_testrail
+      - testsuite_smoke_testrail:
+          context: 
+            - sidecar-shared
+          filters:
+            tags:
+              only: 
+               - /^v.*/
+               - /^build.*/
+            branches:
+              ignore: /.*/
   daily:
     triggers:
       - schedule:
