@@ -60,13 +60,10 @@ jobs:
 
 
 workflows:
-  continuous-deploy:
-    jobs:
-      - testsuite_smoke_testrail
   daily:
     triggers:
       - schedule:
-          cron: "* 1 * * *"
+          cron: "* * * * *"
           filters:
             branches:
               only:
