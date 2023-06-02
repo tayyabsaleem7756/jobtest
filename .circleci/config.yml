@@ -64,8 +64,8 @@ workflows:
     jobs:
       - testsuite_smoke_testrail:
           filters:
-            tags:
-              only: /^v.*/
+            branches:
+              ignore: main
   daily:
     triggers:
       - schedule:
