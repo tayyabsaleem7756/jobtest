@@ -65,7 +65,8 @@ workflows:
       - testsuite_smoke_testrail:
           filters:
             branches:
-              ignore: main
+              ignore: 
+                - main
   daily:
     triggers:
       - schedule:
