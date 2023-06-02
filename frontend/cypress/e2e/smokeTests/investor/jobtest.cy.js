@@ -1,6 +1,6 @@
 /// <reference types= "cypress" />
 
-describe('Investor Smoke - Invest As an Individual a c', () => {
+describe('Investor Smoke - Invest As an Individual', () => {
 
     it('C12078: Create Fund/ Eligibility Criteria/ Approval of Eligibility', () => {
 
