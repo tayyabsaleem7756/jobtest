@@ -108,6 +108,7 @@ workflows:
     jobs:
       - testsuite_smoke_testrail
       - testsuite_smoke_testrail2
+      - testsuite_smoke_testrail3
 
 
 
