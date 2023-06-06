@@ -385,15 +385,6 @@ workflows:
   continuous-deploy:
     jobs:
       - testsuite_smoke_testrail
-          context:
-            - sidecar-shared
-          requires:
-            - build_public_marketplace_frontend
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
   daily:
     triggers:
       - schedule:
