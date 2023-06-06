@@ -133,8 +133,8 @@ workflows:
     jobs:
       - testsuite_smoke_testrail
       - testsuite_smoke_testrail2:
-        requires:
-          - testsuite_smoke_testrail
+          requires:
+            - testsuite_smoke_testrail
       
 
 
