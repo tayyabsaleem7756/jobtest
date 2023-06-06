@@ -135,7 +135,9 @@ workflows:
       - testsuite_smoke_testrail2:
           requires:
             - testsuite_smoke_testrail
-            - testsuite_smoke_testrail3
+      - testsuite_smoke_testrail3:
+          requires:
+            - testsuite_smoke_testrail2
 
             
 
