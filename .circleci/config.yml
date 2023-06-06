@@ -131,7 +131,7 @@ workflows:
               only:
                 - main            
     jobs:
-      - testsuite_smoke_testrail:
+      - testsuite_smoke_testrail
         requires:
           - testsuite_smoke_testrail2:
         requires:
