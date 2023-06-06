@@ -132,11 +132,11 @@ workflows:
                 - main            
     jobs:
       - testsuite_smoke_testrail
-      - testsuite_smoke_testrai3
+      - testsuite_smoke_testrail3
       - testsuite_smoke_testrail2:
           requires:
             - testsuite_smoke_testrail
-            - testsuite_smoke_testrai3
+            - testsuite_smoke_testrail3
 
             
 
