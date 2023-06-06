@@ -79,6 +79,31 @@ jobs:
             CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:adminSmokeTestRail || true
 
 
+  testsuite_smoke_testrail4:
+    working_directory: ~/circleci-marketplace-api
+    resource_class: large
+    docker:
+      - image: cypress/included:10.6.0
+        user: root
+        environment:
+          TERM: xterm
+      - image: cimg/postgres:13.3
+        environment:
+          POSTGRES_USER: citest
+          POSTGRES_DB: citest
+          POSTGRES_PASSWORD: citest
+      - image: localstack/localstack
+      - image: cimg/redis:6.2
+    steps:
+      - checkout
+      - run:
+          name: Running Smoke tests
+          command: |
+            cd frontend
+            npm i
+            CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:adminSmokeTestRail || true
+
+
 
 
 
@@ -109,6 +134,7 @@ workflows:
       - testsuite_smoke_testrail
       - testsuite_smoke_testrail2
       - testsuite_smoke_testrail3
+      - testsuite_smoke_testrail4
 
 
 
