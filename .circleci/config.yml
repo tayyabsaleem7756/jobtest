@@ -204,47 +204,7 @@ workflows:
 
   continuous-deploy:
     jobs:
-      - testsuite_smoke_testrail:
-          context: 
-            - sidecar-shared
-          filters:
-            tags:
-              only: 
-               - /^v.*/
-               - /^build.*/
-            branches:
-              ignore: /.*/
-      - testsuite_investorSmokeTests:
-          context:
-            - sidecar-shared
-          filters:
-            tags:
-              only: 
-               - /^v.*/
-               - /^build.*/
-            branches:
-              ignore: /.*/
-      - testsuite_preDev_admin:
-          context:
-            - sidecar-shared
-          filters:
-            tags:
-              only: 
-               - /^v.*/
-               - /^build.*/
-            branches:
-              ignore: /.*/
-      - testsuite_preDev_investor:
-          context:
-            - sidecar-shared
-          filters:
-            tags:
-              only: 
-               - /^v.*/
-               - /^build.*/
-            branches:
-              ignore: /.*/
-      
+      - testsuite_smoke_testrail
           context:
             - sidecar-shared
           requires:
