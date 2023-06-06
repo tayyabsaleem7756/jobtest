@@ -70,7 +70,7 @@ workflows:
   daily:
     triggers:
       - schedule:
-          cron: "* * * *"
+          cron: "* * * * *"
           filters:
             branches:
               only:
