@@ -415,6 +415,8 @@ workflows:
             - sidecar-shared
           requires:
             - testsuite_investorSmokeTests
+                context:
+                  - sidecar-shared
       - testsuite_preDev_investor:
           context:
             - sidecar-shared
