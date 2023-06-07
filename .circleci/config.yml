@@ -387,8 +387,8 @@ workflows:
       - testsuite_smoke_testrail
   daily:
     triggers:
-      - schedule:
-          cron: "55 8 * * *"
+      # - schedule:
+      #     cron: "55 8 * * *"
           filters:
             branches:
               only:
