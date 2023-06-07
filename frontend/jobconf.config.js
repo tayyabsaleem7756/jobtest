@@ -17,8 +17,8 @@ module.exports = defineConfig({
     reporterOptions: {
         host: "https://navable.testrail.io",
         projectId: 2,
-        username: "qa@hellosidecar.com",
-        password: "pj-o...RXgqzkFA3FEe",
+        username: "",
+        password: "",
         suiteId: 263,
         includeAllInTestRun: false,
         allowFailedScreenshotUpload: true,
