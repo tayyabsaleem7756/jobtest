@@ -128,7 +128,7 @@ jobs:
           command: |
             cd frontend
             npm i
-            CYPRESS_DASHBOARD_KEY=$CYPRESS_DASHBOARD_KEY CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:investorSmoke || true
+            CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:investorSmoke || true
       - store_test_results:
           path: multiple-results
       - store_artifacts:
@@ -396,7 +396,7 @@ workflows:
   daily:
     triggers:
       - schedule:
-          cron: "20 14 * * *"
+          cron: "26 14 * * *"
           filters:
             branches:
               only:
