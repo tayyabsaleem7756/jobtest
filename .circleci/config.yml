@@ -403,6 +403,8 @@ workflows:
                 - main            
     jobs:
       - testsuite_smoke_testrail
+          context:
+            - sidecar-shared
       - testsuite_investorSmokeTests:
           requires:
             - testsuite_smoke_testrail
