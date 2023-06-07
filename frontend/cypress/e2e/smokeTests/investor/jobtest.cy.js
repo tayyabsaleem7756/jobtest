@@ -1,4 +1,4 @@
-/// <reference types= "cypress" />
+
 
 describe('Investor Smoke - Invest As an Individual b', () => {
 
