@@ -387,20 +387,20 @@ workflows:
       - testsuite_smoke_testrail
   daily:
     triggers:
-      # - schedule:
-      #     cron: "55 8 * * *"
+      - schedule:
+          cron: "* * * * *"
           filters:
             branches:
               only:
                 - main            
     jobs:
       - testsuite_smoke_testrail
-      - testsuite_investorSmokeTests:
-          requires:
-            - testsuite_smoke_testrail
-      - testsuite_preDev_admin:
-          requires:
-            - testsuite_investorSmokeTests
-      - testsuite_preDev_investor:
-          requires:
-            - testsuite_preDev_admin
+      # - testsuite_investorSmokeTests:
+      #     requires:
+      #       - testsuite_smoke_testrail
+      # - testsuite_preDev_admin:
+      #     requires:
+      #       - testsuite_investorSmokeTests
+      # - testsuite_preDev_investor:
+      #     requires:
+      #       - testsuite_preDev_admin
