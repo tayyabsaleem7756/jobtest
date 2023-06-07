@@ -384,9 +384,7 @@ workflows:
 
   continuous-deploy:
     jobs:
-      - testsuite_smoke_testrail:
-        context:
-         - sidecar-shared
+      - testsuite_smoke_testrail
   daily:
     triggers:
       - schedule:
