@@ -128,7 +128,7 @@ jobs:
           command: |
             cd frontend
             npm i
-            CYPRESS_DASHBOARD_KEY=$CYPRESS_DASHBOARD_KEY CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:adminSmokeTestRail || true
+            CYPRESS_DASHBOARD_KEY=$CYPRESS_DASHBOARD_KEY CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:investorSmoke || true
       - store_test_results:
           path: multiple-results
       - store_artifacts:
@@ -158,7 +158,7 @@ jobs:
           command: |
             cd frontend
             npm i
-            CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:adminSmokeTestRail || true
+            CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:adminPreDev || true
       - store_test_results:
           path: multiple-results
       - store_artifacts:
@@ -187,7 +187,7 @@ jobs:
           command: |
             cd frontend
             npm i
-            CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:adminSmokeTestRail || true
+            CYPRESS_TESTRAIL_REPORTER_USERNAME=$TESTRAIL_REPORTING_USER CYPRESS_TESTRAIL_REPORTER_PASSWORD=$TESTRAIL_REPORTING_PASSWORD CIRCLE_BUILD_ID=$CIRCLE_SHA1 CYPRESS_USERNAME=$CYPRESS_USERNAME CYPRESS_PASSWORD=$CYPRESS_PASSWORD npm run cy:investorPreDev || true
       - store_test_results:
           path: multiple-results
       - store_artifacts:
@@ -385,6 +385,15 @@ workflows:
   continuous-deploy:
     jobs:
       - testsuite_smoke_testrail
+          context:
+            - sidecar-shared
+          requires:
+            - build_public_marketplace_frontend
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
   daily:
     triggers:
       - schedule:
