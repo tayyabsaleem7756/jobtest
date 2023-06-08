@@ -4,7 +4,7 @@ import * as data from '../../../fixtures/data'
 
 describe('Smoke Admin Test Suite', () => {
 
-    context('TC01 Login Test', () => {
+    context.only('TC01 Login Test', () => {
 
         before(() => {
             pages.generalActions.conditionalLoginForAdmin()
