@@ -36,12 +36,13 @@ const login = (email, password) => {
         .should('be.visible')
         .clear()
         .type(email)
-
+        cy.get('.auth0-lock-submit').click()
     // wait for second screen
     cy.get(elements.loginElements.emailInp)
         .should('be.visible')
         .clear()
         .type(email)
+
     cy.get(elements.loginElements.passwordInp)
         .should('be.visible')
         .clear()
