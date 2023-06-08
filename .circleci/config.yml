@@ -394,9 +394,9 @@ workflows:
             branches:
               ignore: /.*/
   daily:
-    triggers:
-      - schedule:
-          cron: "44 8 * * *"
+    # triggers:
+    #   - schedule:
+    #       cron: "44 8 * * *"
           filters:
             branches:
               only:
