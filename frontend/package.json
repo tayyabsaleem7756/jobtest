@@ -9,10 +9,10 @@
     "cy:investorPreDev": "npx cypress run --spec cypress/e2e/smokeTests/investor/jobtest.cy.js --config-file=jobconf.config.js"
   },
   "dependencies": {
-    "cypress": "^10.4.0",
     "react-lineto": "^3.3.0"
   },
   "devDependencies": {
+    "cypress": "^10.4.0",
     "cypress-file-upload": "^5.0.8",
     "cypress-if": "^1.10.4",
     "cypress-testrail": "^2.6.0",
