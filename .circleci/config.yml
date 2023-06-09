@@ -396,13 +396,13 @@ workflows:
   daily:
     triggers:
       - schedule:
-          cron: "32 6 * * *"
+          cron: "1 7 * * *"
           filters:
             branches:
               only:
                 - main            
     jobs:
-      - testsuite_preDev_admin:
+      - testsuite_preDev_investor:
           context:
             - sidecar-shared
       # - testsuite_investorSmokeTests:

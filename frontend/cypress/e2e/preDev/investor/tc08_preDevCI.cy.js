@@ -189,7 +189,8 @@ describe('Create Fund/ Eligibility Criteria/ Approval of Eligibility', () => {
             // fill third form
             pages.previewEligibilityFormActions.fillKnowledgeableEmployeeForm()
             pages.generalActions.waitForTime(3000)
-            pages.previewEligibilityFormActions.clickOnNextButtonSubmitInfo()
+            pages.previewEligibilityFormActions.clickOnNextButton()
+            
             // upload fund template
             // pages.previewEligibilityFormActions.uploadFundTemplate()
             // pages.previewEligibilityFormActions.verifyFundTemplateUpload()
@@ -200,7 +201,7 @@ describe('Create Fund/ Eligibility Criteria/ Approval of Eligibility', () => {
             pages.previewEligibilityFormActions.fillEquityFormData()
             //pages.previewEligibilityFormActions.verifyEligibilityLimitCheckLink()
             pages.previewEligibilityFormActions.clickAndVerifyEquityAndLevergeValue()
-            pages.previewEligibilityFormActions.clickOnNextButton()
+            pages.previewEligibilityFormActions.clickOnNextButtonSubmitInfo()
             //pages.previewEligibilityFormActions.clickOnMyApplicationButton()
         })
 
