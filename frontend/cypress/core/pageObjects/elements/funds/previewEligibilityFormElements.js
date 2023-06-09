@@ -12,7 +12,8 @@ const jobTitleInput = 'input[name=jobTitle]'
 const previewSuccessMessage = 'h6'
 // Preview Form Elements Step 2 - Accredited Form
 const accreditedRadioOption1 = 'label[for=accredited-0]'
-const certifyCheckbox = ".sc-zHacW > #accredited-0"
+const certifyCheckbox = ".sc-jNjAJB > #accredited-0"
+//".sc-zHacW > #accredited-0"
 const accreditedRadioOption2 = 'label[for=accredited-2]'
 const accreditedRadioOption4 = 'label[for=accredited-4]'
 // Preview Form Elements Step 3 - Knowledgeable Emp

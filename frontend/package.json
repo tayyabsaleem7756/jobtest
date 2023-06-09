@@ -3,7 +3,7 @@
     "cy:run:local": "cypress run",
     "cy:open:local": "cypress open",
     "cy:adminPreDev": "cypress run --spec cypress/e2e/smokeTests/investor/jobtest.cy.js --config-file=jobconf.config.js",
-    "cy:adminSmokeTestRail": "cypress run --spec cypress/e2e/smokeTests/investor/jobtest.cy.js --config-file=jobconf.config.js",
+    "cy:adminSmokeTestRail": "cypress run --spec cypress/e2e/smokeTests/admin/smokeAdmin.cy.js --config-file=adminsmoke.config.js",
     "cy:investorSmoke": "cypress run --spec cypress/e2e/smokeTests/investor/jobtest.cy.js --config-file=jobconf.config.js",
     "cy:investorPreDevTestRail": "cypress run --env username=$CYPRESS_USERNAME,password=$CYPRESS_PASSWORD --spec cypress/e2e/preDev/investor/tc06_InvestoreOnboardingCorporateEntity.cy.js --config-file=invPreDev.config.js",
     "cy:investorPreDev": "npx cypress run --spec cypress/e2e/preDev/investor/tc08_preDevCI.cy.js --config-file=investorPreDev.config.js"

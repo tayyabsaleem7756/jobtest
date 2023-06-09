@@ -1,6 +1,7 @@
 const navbarDropdown = 'div.dropdown button'
 const signOutLink = 'div.dropdown > div a:nth-child(4)'
-const fundTableCellDiv = ".sc-ljpcbl"
+const fundTableCellDiv = '.sc-juNJA-d > :nth-child(3)'
+//".sc-ljpcbl"
 //".sc-dYCqDv"
 //old div '.sc-dPzuq'
 const fundRowParentDiv = 'div[role=row]'

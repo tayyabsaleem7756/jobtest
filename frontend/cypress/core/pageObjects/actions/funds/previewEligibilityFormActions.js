@@ -86,6 +86,9 @@ const verifyFundTemplateUpload = () => {
 const clickOnNextButton = () => {
     pages.generalActions.clickButtonUsingLabel(labels.previewEligibilityFormLabels.nextButtonLabel)
 }
+const clickOnNextButtonSubmitInfo = () => {
+    pages.generalActions.clickButtonUsingLabel(labels.previewEligibilityFormLabels.submitinfo)
+}
 
 const verifyPreviewSubmitSuccess = () => {
     pages.generalActions.verifyElementsText(elements.previewEligibilityFormElements.previewSuccessMessage, successAlerts.previewFormSubmitSuccess)
@@ -200,7 +203,8 @@ const previewEligibilityFormActions = {
     clickOnBackButton,
     fillQualifiedPurchaserForm,
     uploadInvestmentStatement,
-    fillPreviewFormDataIN
+    fillPreviewFormDataIN,
+    clickOnNextButtonSubmitInfo
 }
 
 export default previewEligibilityFormActions

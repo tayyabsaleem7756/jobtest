@@ -14,6 +14,7 @@ const uploadDocFileLabel = 'Please upload the documents.'
 // Preview Form - Final
 const goToMyApplicationButtonLabel = 'Go to My Application'
 const not_eligible_text = "Not eligible"
+const submitinfo="Submit Info"
 
 const previewEligibilityFormLabels = {
     backToEditButtonLabel,
@@ -27,7 +28,8 @@ const previewEligibilityFormLabels = {
     selectDocLabel,
     uploadDocFileLabel,
     goToMyApplicationButtonLabel,
-    not_eligible_text
+    not_eligible_text,
+    submitinfo
 }
 
 module.exports = previewEligibilityFormLabels
