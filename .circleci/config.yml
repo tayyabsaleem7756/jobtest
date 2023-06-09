@@ -396,7 +396,7 @@ workflows:
   daily:
     triggers:
       - schedule:
-          cron: "30 9 * * *"
+          cron: "38 12 * * *"
           filters:
             branches:
               only:
@@ -408,8 +408,8 @@ workflows:
       - testsuite_preDev_investor:
           context:
             - sidecar-shared
-          requires:
-            - testsuite_preDev_admin
+          # requires:
+          #   - testsuite_preDev_admin
       # - testsuite_preDev_admin:
       #     context:
       #       - sidecar-shared
