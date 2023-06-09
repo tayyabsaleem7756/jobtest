@@ -7,7 +7,7 @@ import * as data from '../../../fixtures/data'
 var getText;
 describe('Create Fund/ Eligibility Criteria/ Approval of Eligibility', () => {
 
-    context.only('TC01 Create Fund/ Eligibility Criteria/ Approval of Eligibility', () => {
+    context('TC01 Create Fund/ Eligibility Criteria/ Approval of Eligibility', () => {
 
         before(() => {
             pages.generalActions.conditionalLoginForAdmin()
@@ -158,7 +158,7 @@ describe('Create Fund/ Eligibility Criteria/ Approval of Eligibility', () => {
         });
     });
 
-    context.only("TC02 Investor's - Find Fund and click on Apply Now Link", () => {
+    context("TC02 Investor's - Find Fund and click on Apply Now Link", () => {
 
         it("C5649: Apply Button-Find Same Fund and Only Perform one Click on Apply Button", () => {
             pages.generalActions.conditionalLoginForAdmin()
